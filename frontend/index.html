@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Military Intelligence News Reader</title>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="scan-lines"></div>
+
+    <header>
+      <div class="header-title">CLASSIFIED: INTEL READER</div>
+      <div class="status-display" id="current-status">
+        STATUS: <span id="status-text">AWAITING MISSION</span>
+      </div>
+    </header>
+
+    <main>
+      <div class="left-column">
+        <section class="mission-briefing">
+          <h2>MISSION BRIEFING</h2>
+          <div class="tactical-info" id="tactical-quote">
+            "In the field, information is ammunition." - Gen. Charles Krulak
+          </div>
+
+          <div class="panel-content">
+            <p>OBJECTIVE: Extract intelligence from newspaper publications.</p>
+            <p class="coordinates">
+              GRID COORDINATES: <span id="current-time">--:--:--</span> |
+              CLEARANCE LEVEL: TOP SECRET
+            </p>
+          </div>
+        </section>
+
+        <section class="intelligence-panel">
+          <h2>INTELLIGENCE ACQUISITION</h2>
+          <div class="upload-area" id="drop-area">
+            <p>DROP INTELLIGENCE DOCUMENT HERE</p>
+            <span>OR</span>
+            <button class="btn" id="select-file-btn">SELECT TARGET FILE</button>
+            <input
+              type="file"
+              id="file-input"
+              accept="image/*"
+              style="display: none"
+            />
+          </div>
+
+          <div
+            class="image-display"
+            id="preview-container"
+            style="display: none"
+          >
+            <h3>RECONNAISSANCE IMAGE</h3>
+            <img id="image-preview" src="" alt="Document Preview" />
+            <div class="controls">
+              <button class="btn" id="process-btn">INITIATE EXTRACTION</button>
+              <button class="btn" id="clear-btn">CLEAR DATA</button>
+            </div>
+          </div>
+          <div
+            class="image-display"
+            id="preview-container1"
+            style="display: none"
+          >
+            <img id="image-preview1" src="" alt="Document Previewwww" />
+            <div class="controls"></div>
+          </div>
+
+          <div class="progress-bar-container" id="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+          </div>
+          <div class="loader" id="loader"></div>
+        </section>
+      </div>
+
+      <div class="right-column">
+        <section class="content-display">
+          <h2>EXTRACTED INTELLIGENCE</h2>
+          <div class="panel-content">
+            <div id="extraction-result">
+              NO INTELLIGENCE RECEIVED. AWAITING DATA UPLOAD.
+            </div>
+          </div>
+        </section>
+
+        <section class="control-panel">
+          <h2>INTELLIGENCE BROADCAST</h2>
+          <div class="panel-content">
+            <div class="controls">
+              <div>
+                <label for="voice-select">COMMS CHANNEL:</label>
+                <select id="voice-select"></select>
+              </div>
+
+              <div class="rate-control">
+                <label for="rate">TRANSMISSION SPEED:</label>
+                <input
+                  type="range"
+                  id="rate"
+                  min="0.5"
+                  max="2"
+                  value="1"
+                  step="0.1"
+                />
+                <span id="rate-value">1.0</span>
+              </div>
+            </div>
+
+            <div class="controls">
+              <button class="btn" id="play-btn" disabled>
+                BROADCAST INTELLIGENCE
+              </button>
+              <button class="btn" id="pause-btn" disabled>
+                PAUSE TRANSMISSION
+              </button>
+              <button class="btn" id="stop-btn" disabled>
+                ABORT TRANSMISSION
+              </button>
+            </div>
+
+            <div class="status-msg" id="status-message"></div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div>
+        <span class="tag">CLASSIFIED</span>
+        <span class="tag">MILITARY EYES ONLY</span>
+        <span>INTEL READER v3.7 | AUTHORIZATION CODE: OSCAR-MIKE-0923</span>
+      </div>
+    </footer>
+    <script src="/script.js"></script>
+  </body>
+</html>
